@@ -26,7 +26,9 @@ npm run build
 
 | Path | What it holds |
 |---|---|
-| `src/pages/` | One file per page (`index`, `about`, `ventures`, `work`, `insights`, `work-with-me`, `ca4cpa`, `sop`, `enquire`, `privacy`) |
+| `src/pages/` | One file per page (`index`, `about`, `ventures`, `work`, `work/log`, `insights`, `work-with-me`, `ca4cpa`, `sop`, `enquire`, `privacy`) |
+| `src/content/work-log/` | Published work entries, one Markdown file each (see `work-desk/`) |
+| `work-desk/` | The enquiry intake script and how work flows from the site to the register and back |
 | `src/layouts/Layout.astro` | Shared header, footer and page shell |
 | `src/components/kit/` | Sections built from Magic UI components |
 | `src/components/ui/` | shadcn/ui and Magic UI components |
@@ -36,5 +38,5 @@ npm run build
 ## Before going live
 
 - Amber dashed "To add" / "To confirm" notes mark content that still has to be supplied or verified. Remove each one as it is resolved.
-- The enquiry form is not connected: set a form endpoint in the `action` attribute in `src/pages/enquire.astro`.
+- The enquiry form is not connected until `PUBLIC_ENQUIRY_ENDPOINT` is set on the host: follow `work-desk/README.md`, step 1.
 - `src/pages/privacy.astro` is a draft outline, not a reviewed privacy notice.
