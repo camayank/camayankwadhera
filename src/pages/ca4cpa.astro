@@ -10,73 +10,79 @@ const steps = ["Records in", "Reconciled", "Reviewed", "Your sign-off"];
 const docs = ["Bank", "Cards", "Invoices", "Bills", "Payroll", "Receipts"];
 // which of the eight rows on the illustrated month-end pack carry a review flag
 const rows = [72, 88, 64, 92, 58, 80, 70, 46].map((width, index) => ({ width, flag: [1, 4, 6].includes(index) }));
+// lines on the hero's illustrated close pack
+const pack = [
+  { label: "Bank reconciliation", width: 86, done: true },
+  { label: "Card reconciliation", width: 74, done: true },
+  { label: "Accruals schedule", width: 62, done: true },
+  { label: "Payroll tie-out", width: 80, done: true },
+  { label: "Open queries", width: 34, done: false },
+];
+const credentials = [
+  ["CA", "Chartered Accountant"],
+  ["CS", "Company Secretary"],
+  ["CMA", "Cost and Management Accountant"],
+  ["LLB", "Bachelor of Laws"],
+];
 ---
 <Layout
-  title="CA4CPA for US CPA firms — CA Mayank Wadhera"
-  description="Technology-first accounting and tax support for US CPA firms, led by a multi-qualified finance, tax and legal professional. Start with one sample month."
-  current="ventures"
+  title="CA4CPA — Accounting and tax support for US CPA firms"
+  description="Bookkeeping, month-end workpapers and agreed tax preparation tasks for US CPA firms, checked by software and reviewed by a qualified professional. Start with a sample close pack."
+  current="services"
+  brand="ca4cpa"
 >
   <section class="hero hero-visual relative overflow-hidden">
     <HeroDots client:load />
     <div class="wrap relative">
       <div class="hero-split">
         <div>
-          <HeroBadge>CA4CPA · For US CPA firms</HeroBadge>
-          <h1 class="mega">Technology-first. <em>Professionally qualified.</em></h1>
-          <div class="hero-meta">
-            <span class="tag">Decision platform</span>
-            <span class="tag">Bookkeeping</span>
-            <span class="tag">Month-end</span>
-            <span class="tag">Tax support</span>
-          </div>
+          <HeroBadge>Technology-first · Professionally qualified</HeroBadge>
+          <h1 class="mega" style="font-size:clamp(38px,5.6vw,76px)">Accounting and tax support <em>for US CPA firms.</em></h1>
+          <p class="hero-sub">Bookkeeping, month-end workpapers and agreed tax preparation tasks, checked by software and reviewed by a qualified professional before they reach you.</p>
           <div class="actions">
-            <a class="btn solid" href="/enquire?audience=accounting-us">Request a sample month</a>
-            <a class="btn" href="#walkthrough">Watch a month close</a>
+            <a class="btn solid" href="/enquire?audience=accounting-us">Request a sample close pack</a>
+            <a class="btn" href="/enquire?audience=accounting-us">Discuss a paid pilot</a>
           </div>
+          <a class="text-route" href="#platform">Explore the US tax decision platform</a>
         </div>
-        <figure class="portrait">
-          <div class="portrait-ph" data-hero-3d role="img" aria-label="Scattered tiles assembling into ordered ledger sheets">
-            <span class="portrait-mono">C4</span>
+        <figure class="pack-stage" aria-label="Illustration of a reviewed month-end pack">
+          <div class="pack">
+            <header><strong>Month-end pack</strong><span>Reviewed</span></header>
+            {pack.map((line) => (
+              <div class="pack-row">
+                <span class="pack-label">{line.label}</span>
+                <span class="pack-bar"><i style={`width:${line.width}%`}></i></span>
+                <em class={line.done ? "ok" : "open"}></em>
+              </div>
+            ))}
+            <footer><span>Prepared</span><span>Reviewed</span><span class="next">Your sign-off</span></footer>
             <FrameBeam client:load />
           </div>
+          <figcaption><span class="confirm">Illustration. To replace with a real, redacted close pack.</span></figcaption>
         </figure>
       </div>
     </div>
   </section>
 
-  <section class="proof-strip" aria-label="Systems the founder has worked on">
+  <div class="strip-label"><div class="wrap">Founder's previous product experience</div></div>
+  <section class="proof-strip" aria-label="Founder's previous product experience">
     <div class="wrap proof-row">
-      <a href="/work#public"><strong>MCA21</strong><span>Infosys</span></a>
+      <a href="/work#public"><strong>MCA21</strong><span>At Infosys</span></a>
       <a href="/work#public"><strong>GSTN</strong><span>GST systems</span></a>
-      <a href="/work#public"><strong>DigiGST</strong><span>EY</span></a>
-      <a href="/work#founder"><strong>Platforms</strong><span>DigiComply · CA4CPA</span></a>
+      <a href="/work#public"><strong>DigiGST</strong><span>At EY</span></a>
+      <a href="/about"><strong>CA, CS, CMA, LLB</strong><span>Founder</span></a>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section dark" id="routes">
     <div class="wrap">
-      <div class="band reveal"><Icon name="seal" /><h2>Finance, tax and legal, <em>in one practice</em></h2></div>
-      <div class="seals reveal">
-        <span class="seal">CA</span><span class="seal">CS</span><span class="seal">CMA</span><span class="seal">LLB</span><span class="seal">M.Com</span><span class="seal">NET</span>
+      <div class="band"><Icon name="layers" /><h2>Three services, <em>three ways to try them</em></h2></div>
+      <div class="lanes reveal">
+        <div class="lane"><div><small>Accounting</small><strong>Bookkeeping and month-end</strong></div><div class="steps big"><span>Sample close pack</span><span>Scope call</span><span>Paid pilot month</span></div></div>
+        <div class="lane"><div><small>Tax</small><strong>Preparation support</strong></div><div class="steps big"><span>Agreed scope</span><span>Small batch</span><span>Review</span></div></div>
+        <div class="lane"><div><small>Software</small><strong>US tax decision platform</strong></div><div class="steps big"><span>Sample workflow</span><span>Demo</span><span>Paid software pilot</span></div></div>
       </div>
-      <div class="tiles c4 reveal">
-        <div class="tile"><Icon name="scale" /><strong>Registered Valuer</strong><small>Securities or Financial Assets</small></div>
-        <div class="tile"><Icon name="loop" /><strong>Insolvency Professional</strong></div>
-        <a class="tile" href="/about#qualifications"><Icon name="user" /><strong>Founder's credentials</strong><span class="go">See all</span></a>
-        <div class="tile"><Icon name="people" /><strong>Team credentials</strong><span class="confirm">To add: each team member's qualification and experience</span></div>
-      </div>
-      <p class="mt-6"><span class="confirm">The seals above are the founder's own. To add: issuer, date and verification link for each.</span></p>
-    </div>
-  </section>
-
-  <section class="section tint">
-    <div class="wrap">
-      <div class="band reveal"><Icon name="screen" /><h2>The technology</h2></div>
-      <div class="tiles c3 reveal">
-        <div class="tile"><Icon name="target" /><strong>US tax Decision Intelligence Platform</strong><span class="confirm">To add: real screens and a demo link</span></div>
-        <div class="tile"><Icon name="check" /><strong>Workflow and deadline tracking</strong><small>DigiComply</small></div>
-        <div class="tile"><Icon name="bolt" /><strong>AI-assisted checks, human-reviewed</strong><span class="confirm">To add: where AI assists and who reviews it</span></div>
-      </div>
+      <p class="mt-7"><span class="confirm">To add: which entity contracts for each service, and whether work is white-label</span></p>
     </div>
   </section>
 
@@ -108,54 +114,71 @@ const rows = [72, 88, 64, 92, 58, 80, 70, 46].map((width, index) => ({ width, fl
     </div>
   </section>
 
-  <section class="section">
-    <div class="wrap">
-      <div class="band reveal"><Icon name="layers" /><h2>Three checks on every file</h2></div>
-      <ChecksBeam client:visible />
-      <p class="mt-7"><span class="confirm">To confirm: which checks are automated today, and who the qualified reviewer is</span></p>
-    </div>
-  </section>
-
-  <section class="section dark">
-    <div class="wrap">
-      <div class="band"><Icon name="layers" /><h2>Three ways <em>in</em></h2></div>
-      <div class="lanes reveal">
-        <div class="lane"><div><small>Software</small><strong>Decision platform</strong></div><div class="steps big"><span>Sample workflow</span><span>Demo</span><span>Paid software pilot</span></div></div>
-        <div class="lane"><div><small>Accounting</small><strong>Bookkeeping and month-end</strong></div><div class="steps big"><span>Sample month</span><span>Scope call</span><span>Paid pilot month</span></div></div>
-        <div class="lane"><div><small>Tax</small><strong>Preparation support</strong></div><div class="steps big"><span>Agreed scope</span><span>Small batch</span><span>Review</span></div></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section tint">
-    <div class="wrap">
-      <div class="band reveal"><Icon name="target" /><h2>What you can count on</h2></div>
-      <div class="tiles c3 reveal">
-        <div class="tile"><Icon name="clock" /><strong>Turnaround</strong><span class="confirm">To add: days you can commit to</span></div>
-        <div class="tile"><Icon name="seal" /><strong>Qualified review on every file</strong><span class="confirm">To confirm</span></div>
-        <div class="tile"><Icon name="chat" /><strong>One named point of contact</strong></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
+  <section class="section" id="inspect">
     <div class="wrap">
       <div class="band reveal"><Icon name="doc" /><h2>Inspect before you commit</h2></div>
-      <div class="tiles c4 reveal">
-        <div class="tile"><Icon name="doc" /><strong>Sample month-end pack</strong><span class="confirm">To add: redacted sample file</span></div>
-        <div class="tile"><Icon name="shield" /><strong>Data handling</strong><span class="confirm">To add: only controls actually in place</span></div>
-        <div class="tile"><Icon name="screen" /><strong>Software we work in</strong><span class="confirm">To add: accounting software your team already uses</span></div>
-        <div class="tile"><Icon name="bolt" /><strong>AI use, disclosed</strong><span class="confirm">To add: where AI assists, and that a person reviews it</span></div>
+      <div class="tiles c3 reveal">
+        <div class="tile"><Icon name="doc" /><strong>Sample close pack</strong><small>Reconciliation, close checklist, adjustment schedule, reviewer query log</small><span class="confirm">To add: redacted files. To decide: example pack, or a trial on the firm's own client</span></div>
+        <div class="tile"><Icon name="shield" /><strong>Data handling</strong><small>Access, devices, file storage, retention and deletion, incident contact</small><span class="confirm">To add: only controls actually in place, and certification status stated accurately</span></div>
+        <div class="tile"><Icon name="bolt" /><strong>AI use</strong><small>Which tasks, what data reaches which system, who verifies</small><span class="confirm">To add: the real answers, and the firm's approval step</span></div>
+        <div class="tile"><Icon name="screen" /><strong>Software we work in</strong><span class="confirm">To add: applications the team operates today, and how access works</span></div>
+        <div class="tile"><Icon name="check" /><strong>Scope and exclusions</strong><span class="confirm">To add: deliverables, supported work types, what is out of scope</span></div>
+        <div class="tile"><Icon name="scale" /><strong>Commercial terms</strong><span class="confirm">To add: pricing basis, pilot scope, rework, exit</span></div>
       </div>
       <div class="actions"><a class="btn" href="/sop">How delivery runs</a></div>
     </div>
   </section>
 
+  <section class="section tint">
+    <div class="wrap">
+      <div class="band reveal"><Icon name="layers" /><h2>Three checks on every file</h2></div>
+      <ChecksBeam client:visible />
+      <p class="mt-7"><span class="confirm">To confirm: which checks are automated today, who the qualified reviewer is, and what they check</span></p>
+    </div>
+  </section>
+
   <section class="section">
     <div class="wrap">
-      <h2 class="mega">Start with <em>one sample month.</em></h2>
+      <div class="band reveal"><Icon name="people" /><h2>People and commitments</h2></div>
+      <div class="tiles c4 reveal">
+        <div class="tile"><Icon name="chat" /><strong>One named point of contact</strong><span class="confirm">To add: name, working hours, overlap with US time zones</span></div>
+        <div class="tile"><Icon name="seal" /><strong>Qualified reviewer</strong><span class="confirm">To add: name and relevant experience</span></div>
+        <div class="tile"><Icon name="user" /><strong>Backup cover</strong><span class="confirm">To add: who covers absence</span></div>
+        <div class="tile"><Icon name="clock" /><strong>Turnaround</strong><span class="confirm">To add: per deliverable, counted from complete inputs</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tint" id="platform">
+    <div class="wrap">
+      <div class="band reveal"><Icon name="screen" /><h2>The technology</h2></div>
+      <div class="tiles c3 reveal">
+        <div class="tile"><Icon name="target" /><strong>US tax decision platform</strong><small>For US returns only</small><span class="confirm">To add: real screens showing one input and its output, and a demo link</span></div>
+        <div class="tile"><Icon name="check" /><strong>Workflow and deadline tracking</strong><small>DigiComply</small><span class="confirm">To add: a real screen</span></div>
+        <div class="tile"><Icon name="bolt" /><strong>Automated checks before review</strong><span class="confirm">To add: one demonstrated check</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="band reveal"><Icon name="seal" /><h2>Finance, tax and legal qualifications</h2></div>
+      <div class="seals reveal">
+        {credentials.map(([short, full]) => <span class="seal">{short}<small>{full}</small></span>)}
+      </div>
+      <div class="tiles c2 reveal">
+        <a class="tile" href="/about#qualifications"><Icon name="user" /><strong>Founder's full credentials</strong><span class="go">See all</span></a>
+        <div class="tile"><Icon name="people" /><strong>Team credentials</strong><span class="confirm">To add: each team member's qualification and experience</span></div>
+      </div>
+      <p class="mt-6"><span class="confirm">These are the founder's Indian qualifications. To add: issuer, date and verification link for each.</span></p>
+    </div>
+  </section>
+
+  <section class="section tint">
+    <div class="wrap">
+      <h2 class="mega">Start with <em>one sample close pack.</em></h2>
       <div class="actions">
-        <a class="btn solid" href="/enquire?audience=accounting-us">Request a sample month</a>
+        <a class="btn solid" href="/enquire?audience=accounting-us">Request a sample close pack</a>
         <a class="btn" href="/enquire?audience=accounting-intl">Outside the US</a>
       </div>
     </div>
@@ -164,8 +187,4 @@ const rows = [72, 88, 64, 92, 58, 80, 70, 46].map((width, index) => ({ width, fl
 
 <script>
   import "../scripts/walkthrough.js";
-
-  // The 3D scene loads after the rest of the page
-  const host = document.querySelector("[data-hero-3d]");
-  if (host) import("../scripts/hero3d.js").then((scene) => scene.mount(host));
 </script>

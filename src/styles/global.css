@@ -775,4 +775,48 @@
 
   /* shared pieces for the React kit sections */
   .kit-card { border: 1px solid var(--rule); border-radius: 20px; background: #fff; }
+
+  /* ---- review fixes ---- */
+  /* buttons on dark sections stay readable */
+  .section.dark .btn { background: rgba(255, 255, 255, .06); color: #fff; border-color: rgba(255, 255, 255, .22); box-shadow: none; }
+  .section.dark .btn:hover { background: rgba(255, 255, 255, .14); color: #fff; }
+  .section.dark .btn.solid { background: #fff; color: var(--ink); border-color: #fff; }
+  .section.dark .btn.solid:hover { background: #d1fae5; color: var(--ink); border-color: #d1fae5; }
+
+  /* process steps read as a sequence, not as buttons */
+  .steps, .steps.big { gap: 6px 14px; font: 500 14px/1.3 var(--body); }
+  .steps span, .steps.big span, .steps span:last-child { background: none; border: 0; padding: 0; border-radius: 0; color: inherit; display: inline-flex; align-items: center; gap: 8px; }
+  .steps span::before { content: ""; width: 8px; height: 8px; border-radius: 50%; border: 2px solid #34d399; flex: none; }
+  .steps span:last-child { font-weight: 600; }
+  .steps span:last-child::before { background: #34d399; }
+  .steps span:not(:last-child)::after { content: "→"; margin-left: 6px; color: #94a3b8; }
+  .lane .steps { color: #e2e8f0; }
+  .tile .steps { color: var(--ink-soft); }
+
+  .portrait-small { max-width: 340px; justify-self: end; width: 100%; }
+  .strip-label { background: var(--green-deep); color: #94a3b8; font: 500 11px var(--mono); letter-spacing: .12em; text-transform: uppercase; padding: 22px 0 0; }
+  .strip-label + .proof-strip .proof-row a { padding-top: 18px; }
+  .seal small { display: block; margin-top: 6px; font: 400 12px/1.2 var(--body); letter-spacing: 0; color: var(--ink-soft); }
+  .hero-sub { margin-top: 20px; max-width: 46ch; font-size: clamp(17px, 1.5vw, 20px); color: var(--ink-soft); }
+  .text-route { display: inline-flex; gap: 8px; margin-top: 22px; font: 500 14px var(--body); color: var(--brand); text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+  .text-route::after { content: "→"; }
+
+  /* illustrated close pack in the CA4CPA hero */
+  .pack-stage { margin: 0; perspective: 1400px; display: grid; gap: 14px; justify-items: start; }
+  .pack { position: relative; width: 100%; font-size: 15px; max-width: 520px; justify-self: center; background: #fff; border: 1px solid var(--rule); border-radius: 22px; padding: 28px; display: grid; gap: 18px; transform: rotateY(-10deg) rotateX(5deg); box-shadow: 0 50px 90px -40px rgba(11, 18, 32, .45), 0 2px 4px rgba(11, 18, 32, .06); }
+  .pack header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 14px; border-bottom: 1px solid var(--rule); }
+  .pack header strong { font: 600 18px var(--body); letter-spacing: -.02em; }
+  .pack header span { font: 500 11px var(--mono); text-transform: uppercase; letter-spacing: .08em; color: #047857; background: #ecfdf5; padding: 5px 9px; border-radius: 999px; }
+  .pack-row { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr) 14px; align-items: center; gap: 12px; }
+  .pack-label { font: 500 15px var(--body); color: var(--ink); }
+  .pack-bar { height: 8px; border-radius: 4px; background: #f1f5f9; overflow: hidden; }
+  .pack-bar i { display: block; height: 100%; border-radius: 4px; background: linear-gradient(90deg, #10b981, #0891b2); }
+  .pack-row em { width: 12px; height: 12px; border-radius: 50%; }
+  .pack-row em.ok { background: #10b981; box-shadow: 0 0 0 4px rgba(16, 185, 129, .18); }
+  .pack-row em.open { background: #f59e0b; box-shadow: 0 0 0 4px rgba(245, 158, 11, .18); }
+  .pack footer { display: flex; gap: 8px; padding-top: 14px; border-top: 1px solid var(--rule); }
+  .pack footer span { font: 500 11px var(--mono); padding: 6px 10px; border-radius: 8px; background: #f1f5f9; color: var(--ink-soft); }
+  .pack footer .next { background: var(--ink); color: #fff; margin-left: auto; }
+  .pack-stage figcaption { justify-self: center; }
+  @media (max-width: 820px) { .pack { transform: none; } }
 }

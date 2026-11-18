@@ -2,14 +2,30 @@
 import "../styles/global.css";
 import { buttonVariants } from "@/components/ui/button";
 
-const { title, description, current } = Astro.props;
-const nav = [
+const { title, description, current, brand = "personal" } = Astro.props;
+const isC4 = brand === "ca4cpa";
+// CA4CPA pages show the firm's own identity and a navigation limited to what a CPA firm needs
+const c4Nav = [
+  { key: "services", href: "/ca4cpa#routes", label: "Services" },
+  { key: "how", href: "/ca4cpa#walkthrough", label: "How it works" },
+  { key: "inspect", href: "/ca4cpa#inspect", label: "Inspect" },
+  { key: "sop", href: "/sop", label: "Procedures" },
+  { key: "founder", href: "/about", label: "Founder" },
+];
+const personalNav = [
   { key: "about", href: "/about", label: "About" },
   { key: "ventures", href: "/ventures", label: "Ventures" },
   { key: "work", href: "/work", label: "Selected Work" },
   { key: "insights", href: "/insights", label: "Insights" },
   { key: "with-me", href: "/work-with-me", label: "Work With Me" },
 ];
+const nav = isC4 ? c4Nav : personalNav;
+const home = isC4
+  ? { href: "/ca4cpa", mark: "C4", name: "CA4CPA", note: "Accounting and tax support" }
+  : { href: "/", mark: "MW", name: "Mayank Wadhera", note: "Chartered Accountant · Founder" };
+const cta = isC4
+  ? { href: "/enquire?audience=accounting-us", label: "Request a sample" }
+  : { href: "/enquire", label: "Enquire" };
 ---
 <!doctype html>
 <html lang="en">
@@ -29,16 +45,16 @@ const nav = [
     <a class="skip" href="#main">Skip to content</a>
     <header class="site-head">
       <div class="wrap head-row">
-        <a class="brand" href="/">
-          <span class="brand-mark">MW</span>
-          <span class="brand-name">Mayank Wadhera<small>Chartered Accountant · Founder</small></span>
+        <a class="brand" href={home.href}>
+          <span class="brand-mark">{home.mark}</span>
+          <span class="brand-name">{home.name}<small>{home.note}</small></span>
         </a>
         <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
         <nav id="site-nav" class="site-nav" aria-label="Main">
           {nav.map((item) => (
             <a href={item.href} aria-current={item.key === current ? "page" : undefined}>{item.label}</a>
           ))}
-          <a class={buttonVariants({ class: "nav-cta h-9 rounded-lg px-4 no-underline" })} href="/enquire">Enquire</a>
+          <a class={buttonVariants({ class: "nav-cta h-9 rounded-lg px-4 no-underline" })} href={cta.href}>{cta.label}</a>
         </nav>
       </div>
     </header>

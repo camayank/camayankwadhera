@@ -3,10 +3,21 @@ import Layout from "../layouts/Layout.astro";
 import Icon from "../components/Icon.astro";
 ---
 <Layout title="About \u2014 CA Mayank Wadhera" description="The journey, qualifications, teaching and speaking of Mayank Wadhera, Chartered Accountant, founder and product builder." current="about">
-<section class="hero page-hero" data-no="01">
+<section class="hero hero-visual">
   <div class="wrap">
-    <p class="eyebrow"><b>01</b> About</p>
-    <h1 class="mega">Operator. Accountant. <em>Builder.</em></h1>
+    <div class="hero-split">
+      <div>
+        <p class="eyebrow"><b>01</b> About</p>
+        <h1 class="mega">Operator. Accountant. <em>Builder.</em></h1>
+      </div>
+      <!-- Replace the inner <div class="portrait-ph">…</div> with <img src="/portrait.jpg" alt="Mayank Wadhera"> -->
+      <figure class="portrait portrait-small">
+        <div class="portrait-ph" role="img" aria-label="Portrait placeholder">
+          <span class="portrait-mono">MW</span>
+          <span class="confirm">To add: your photo</span>
+        </div>
+      </figure>
+    </div>
   </div>
 </section>
 

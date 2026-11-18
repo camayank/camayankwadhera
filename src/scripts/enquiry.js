@@ -1,6 +1,6 @@
 // Enquiry form: preselect the audience from ?audience=, and show where the enquiry will be routed.
 const ROUTES = {
-  "accounting-us": { to: "CA4CPA", next: "A sample month, then a scope call" },
+  "accounting-us": { to: "CA4CPA", next: "A sample close pack, then a scope call" },
   "accounting-intl": { to: "CA4CPA KPO Solutions", next: "Sample output, then a scope call" },
   "founder-compliance": { to: "Legal Suvidha", next: "Compliance enquiry" },
   "founder-software": { to: "DigiComply", next: "Product walkthrough" },

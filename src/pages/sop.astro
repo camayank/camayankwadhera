@@ -14,7 +14,7 @@ const total = layers.reduce((sum, layer) => sum + layer.items.length, 0);
 <Layout
   title="How offshore delivery runs — CA4CPA"
   description="The standard operating procedures behind offshore accounting and tax delivery, shown as four layers: set up, run, control and scale."
-  current="ventures"
+  current="sop" brand="ca4cpa"
 >
   <section class="hero page-hero" data-no={String(total)}>
     <div class="wrap">
@@ -58,15 +58,14 @@ const total = layers.reduce((sum, layer) => sum + layer.items.length, 0);
 
   <section class="section">
     <div class="wrap">
-      {layers.map((layer, index) => (
-        <>
-          <div class="band reveal"><span class="band-no">0{index + 1}</span><h2>{layer.name}</h2></div>
-          <div class={`tiles c${Math.min(layer.items.length, 5) === 4 ? 4 : layer.items.length === 6 ? 3 : 5} reveal`}>
-            {layer.items.map(([icon, label]) => <div class="tile"><Icon name={icon} /><strong>{label}</strong></div>)}
-          </div>
-        </>
-      ))}
-      <p class="mt-7"><span class="confirm">Standard offshore practice. To confirm: which of these CA4CPA runs today, and the evidence for each.</span></p>
+      <div class="band reveal"><Icon name="doc" /><h2>Evidence for each procedure</h2></div>
+      <div class="tiles c4 reveal">
+        <div class="tile"><Icon name="user" /><strong>Owner</strong><small>Who is responsible</small></div>
+        <div class="tile"><Icon name="bolt" /><strong>Trigger</strong><small>What starts it</small></div>
+        <div class="tile"><Icon name="doc" /><strong>Output</strong><small>What it produces</small></div>
+        <div class="tile"><Icon name="alert" /><strong>Exception path</strong><small>What happens when it fails</small></div>
+      </div>
+      <p class="mt-7"><span class="confirm">Standard offshore practice. To add: for each procedure CA4CPA runs today, its owner, trigger, output and exception path. Remove the rest.</span></p>
       <div class="actions">
         <a class="btn solid" href="/ca4cpa">Watch a month close</a>
         <a class="btn" href="/enquire?audience=accounting-us">Request a sample month</a>
