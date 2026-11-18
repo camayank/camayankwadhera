@@ -3,3 +3,6 @@ dist
 .astro
 
 public/enquiry-config.php
+
+# generated profile PDFs are not kept in the repository
+*.pdf
