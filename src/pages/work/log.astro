@@ -1,0 +1,49 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection, render } from "astro:content";
+
+const entries = (await getCollection("workLog")).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const fmt = new Intl.DateTimeFormat("en-GB", { month: "long", year: "numeric" });
+const rendered = await Promise.all(entries.map(async (entry) => ({ entry, Content: (await render(entry)).Content })));
+---
+<Layout title="Work log — CA Mayank Wadhera" description="Recent client work by Mayank Wadhera and his ventures, published with client approval: what the problem was, what was done and what changed." current="work">
+<section class="hero page-hero" data-no="03">
+  <div class="wrap">
+    <p class="eyebrow"><b>03</b> <a href="/work">Selected work</a> · Work log</p>
+    <h1>Recent work, <em>as it ships.</em></h1>
+    <p class="lede">Each entry is a finished piece of client work, published with the client's approval. Clients are anonymised unless they asked to be named.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    {rendered.length === 0 ? (
+      <p class="lede">The first entries are on their way. Until then, see <a href="/work">selected work</a>.</p>
+    ) : (
+      <ol class="log">
+        {rendered.map(({ entry, Content }) => (
+          <li class="log-entry reveal" id={entry.id}>
+            <div class="log-meta">
+              <time datetime={entry.data.date.toISOString().slice(0, 10)}>{fmt.format(entry.data.date)}</time>
+              <span>{entry.data.venture}</span>
+            </div>
+            <div class="log-body">
+              <h2>{entry.data.title}</h2>
+              {(entry.data.client || entry.data.clientDescription) && (
+                <p class="log-client">{entry.data.client ?? entry.data.clientDescription}</p>
+              )}
+              <p class="log-summary">{entry.data.summary}</p>
+              <div class="prose"><Content /></div>
+              {entry.data.outcome && <p class="log-outcome"><b>Outcome</b> {entry.data.outcome}</p>}
+              {entry.data.tags.length > 0 && (
+                <div class="tags">{entry.data.tags.map((t) => <span class="tag">{t}</span>)}</div>
+              )}
+            </div>
+          </li>
+        ))}
+      </ol>
+    )}
+    <div class="actions"><a class="btn" href="/enquire">Start a piece of work</a></div>
+  </div>
+</section>
+</Layout>

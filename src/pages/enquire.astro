@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { ENQUIRY_ENDPOINT } from "../config";
 ---
 <Layout title="Enquire \u2014 CA Mayank Wadhera" description="Send an enquiry to Mayank Wadhera. Tell us who you are, where you are and what you need, and it is routed to the right venture." current="enquire">
 <section class="hero page-hero" data-no="07">
@@ -12,8 +13,11 @@ import Layout from "../layouts/Layout.astro";
 
 <section class="section">
   <div class="wrap">
-    <!-- Set action="https://…" to a form endpoint to go live. While action is empty the form only previews the routing. -->
-    <form class="form" id="enquiry" method="post" action="">
+    <!-- The endpoint comes from PUBLIC_ENQUIRY_ENDPOINT (see work-desk/README.md). While it is empty the form only previews the routing. -->
+    <form class="form" id="enquiry" method="post" action={ENQUIRY_ENDPOINT} data-endpoint={ENQUIRY_ENDPOINT}>
+      <div class="hp" aria-hidden="true"><label for="website">Leave this empty</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+      <input type="hidden" name="ref">
+      <input type="hidden" name="source">
       <div class="full">
         <label for="audience">I am</label>
         <select id="audience" name="audience" required>
@@ -53,7 +57,7 @@ import Layout from "../layouts/Layout.astro";
         </select>
       </div>
       <div class="full">
-        <button class="btn solid" type="submit">Send enquiry</button>
+        <button class="btn solid" type="submit" data-submit>Send enquiry</button>
         <p class="form-note" style="margin-top:14px">Your details are used only to respond to this enquiry. See the <a href="/privacy">privacy page</a>.</p>
       </div>
     </form>
@@ -61,6 +65,16 @@ import Layout from "../layouts/Layout.astro";
     <div class="routed" id="routed" hidden>
       <h3>Preview only: nothing was sent</h3>
       <p>This form is not connected to an inbox yet. Once connected, this enquiry would be routed to <strong data-to></strong>. Usual next step: <span data-next></span>.</p>
+    </div>
+
+    <div class="routed" id="sent" hidden tabindex="-1">
+      <h3>Thank you. Your enquiry is in.</h3>
+      <p>Reference <strong data-ref></strong>. It goes to <strong data-to></strong>, and the usual next step is: <span data-next></span>. Expect a reply by email.</p>
+    </div>
+
+    <div class="routed" id="send-failed" hidden tabindex="-1">
+      <h3>That didn't go through</h3>
+      <p>Your details are still in the form. Check your connection and press Send again.</p>
     </div>
   </div>
 </section>

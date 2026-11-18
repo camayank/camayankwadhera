@@ -1,6 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Icon from "../components/Icon.astro";
+import { getCollection } from "astro:content";
+
+const recent = (await getCollection("workLog")).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 3);
+const fmt = new Intl.DateTimeFormat("en-GB", { month: "long", year: "numeric" });
 ---
 <Layout title="Selected Work \u2014 CA Mayank Wadhera" description="Selected work by Mayank Wadhera: MCA21, GSTN, EY DigiGST, founder-built products and client case studies, each documented with role and evidence." current="work">
 <section class="hero page-hero" data-no="03">
@@ -46,6 +50,29 @@ import Icon from "../components/Icon.astro";
     <p class="mt-6"><span class="confirm">To add: client-approved or anonymized outcomes for each</span></p>
   </div>
 </section>
+
+{recent.length > 0 && (
+<section class="section tint" id="recent">
+  <div class="wrap">
+    <p class="eyebrow">Recent work · published with client approval</p>
+    <ol class="log recent-log reveal">
+      {recent.map((entry) => (
+        <li class="log-entry">
+          <div class="log-meta">
+            <time datetime={entry.data.date.toISOString().slice(0, 10)}>{fmt.format(entry.data.date)}</time>
+            <span>{entry.data.venture}</span>
+          </div>
+          <div class="log-body">
+            <h2><a href={`/work/log#${entry.id}`}>{entry.data.title}</a></h2>
+            <p class="log-summary">{entry.data.summary}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+    <div class="actions"><a class="btn" href="/work/log">Full work log</a></div>
+  </div>
+</section>
+)}
 
 <section class="section dark" id="structure">
   <div class="wrap">
