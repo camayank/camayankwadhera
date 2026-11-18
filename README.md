@@ -26,7 +26,7 @@ npm run build
 
 | Path | What it holds |
 |---|---|
-| `src/pages/` | One file per page (`index`, `about`, `ventures`, `work`, `insights`, `work-with-me`, `ca4cpa`, `sop`, `enquire`, `privacy`, `404`) |
+| `src/pages/` | One file per page (`index`, `about`, `ventures`, `work`, `insights`, `work-with-me`, `ca4cpa`, `sop`, `profile`, `enquire`, `privacy`, `404`) |
 | `src/layouts/Layout.astro` | Shared header, footer and page shell |
 | `src/components/kit/` | Sections built from Magic UI components |
 | `src/components/ui/` | shadcn/ui and Magic UI components |
@@ -39,9 +39,9 @@ The site is live at https://camayankwadhera.com on Hostinger shared hosting. To 
 
 `public/.htaccess` holds the redirects from the old WordPress addresses and the 404 page.
 
-## Profile PDF
+## Profile
 
-`public/Mayank-Wadhera-Professional-Profile.pdf` is generated from `profile-src/profile.html`. Edit that file and print it to PDF at A4 with backgrounds on to regenerate it.
+The professional profile is shown on the site at `/profile` (`src/pages/profile.astro`). It is not offered as a download. `profile-src/` holds a print layout of the same content, kept for making a PDF by hand if one is ever needed.
 
 ## Enquiries
 

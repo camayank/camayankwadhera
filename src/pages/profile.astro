@@ -1,0 +1,114 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Icon from "../components/Icon.astro";
+
+const experience = [
+  ["2013 – 2015", "Infosys · MCA21", ["Business analysis", "Corporate regulatory platform", "Requirements into processes"]],
+  ["2015 – 2016", "GSTN", ["Business analysis", "GST technology ecosystem", "Tax requirements into workflows"]],
+  ["2016 – 2019", "EY · DigiGST and EWBMS", ["Product management", "Functional requirements", "Tax business rules", "Workflow design", "Development coordination", "Training", "Enterprise implementation"]],
+  ["2017 onward", "Founder", ["Legal Suvidha · 2017", "CA4CPA Global LLC · 2025", "Professional services", "Compliance technology", "Education", "Growth"]],
+];
+const glance = [
+  ["seal", "Chartered Accountant", ["Founder", "Business strategy advisor", "Gurugram"]],
+  ["layers", "Complex requirements into practical systems", ["Finance", "Compliance", "Product design", "Operating processes"]],
+  ["columns", "Six years in tax technology", ["Infosys · MCA21", "GSTN", "EY · DigiGST"]],
+  ["blocks", "Eight ventures", ["Accounting support", "Regulatory technology", "Valuation", "Employability", "Business growth"]],
+];
+const qualifications = [
+  ["2011", "Chartered Accountant (CA)"],
+  ["2013", "Company Secretary (CS)"],
+  ["2014", "Master of Commerce (M.Com.)"],
+  ["2016", "Cost & Management Accountant (CMA)"],
+  ["2023", "Bachelor of Laws (LLB)"],
+  ["2024", "Registered Valuer – Securities or Financial Assets"],
+  ["2024", "Insolvency Professional"],
+];
+const ventures = [
+  ["C4", "CA4CPA", "Founder, CA4CPA Global LLC", ["Bookkeeping", "Month-end", "Tax preparation support", "US tax decision platform"], "/ca4cpa"],
+  ["LS", "Legal Suvidha", "Founder", ["Incorporation", "Recurring compliance", "Accounting and tax"], "/ventures#legal-suvidha"],
+  ["MKW", "MKW Advisors", "Founder", ["Valuation", "Financial analysis", "Structuring", "Strategic advisory"], "/ventures#mkw"],
+  ["DC", "DigiComply", "Founder, DigiComply Solutions Private Limited", ["Task management", "Reminders", "Document workflows", "Client collaboration"], "/ventures#digicomply"],
+  ["CR", "CorpReady", "Founder", ["Practical learning", "Internships", "Job readiness"], "/ventures#corpready"],
+  ["GB", "GrowBiz", "Founder", ["Digital visibility", "Lead generation", "Execution"], "/ventures#growbiz"],
+  ["FU", "First Unicorn", "Founder, First Unicorn Startup Evolvers Private Limited", ["Founder support", "Startup development"], "/ventures#fuse"],
+  ["AF", "Amayra Fincare", "Founder", ["Finance", "Business services"], "/ventures#amayra"],
+];
+---
+<Layout title="Professional Profile — CA Mayank Wadhera" description="Professional profile of CA Mayank Wadhera: domain and process expert, business strategy and growth architect. Experience, qualifications and ventures." current="about">
+  <section class="profile-cover dark">
+    <div class="wrap profile-cover-grid">
+      <div>
+        <p class="eyebrow">Founder · Finance · Technology</p>
+        <h1 class="mega">CA Mayank <em>Wadhera</em></h1>
+        <p class="profile-tagline">Domain and process expert.<br />Business strategy and growth architect.</p>
+        <p class="profile-place">Gurugram, India</p>
+      </div>
+      <img src="/portrait.jpg" alt="Mayank Wadhera" width="1024" height="1536" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">At a glance</p>
+      <div class="tiles c4 reveal">
+        {glance.map(([icon, title, tags]) => (
+          <div class="tile"><Icon name={icon} /><strong>{title}</strong><div class="tags">{tags.map((tag) => <span class="tag">{tag}</span>)}</div></div>
+        ))}
+      </div>
+      <div class="seals" style="margin-top:28px">
+        <span class="seal">CA</span><span class="seal">CS</span><span class="seal">CMA</span><span class="seal">M.Com.</span><span class="seal">LLB</span>
+        <span class="seal">Registered Valuer<small>Securities or Financial Assets</small></span>
+        <span class="seal">Insolvency Professional</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tint">
+    <div class="wrap profile-body">
+      <p class="eyebrow">Experience and professional depth</p>
+      <h2>Where domain meets <em>product.</em></h2>
+      <div class="xp reveal">
+        {experience.map(([when, title, tags]) => (
+          <div class="xp-row"><span class="xp-when">{when}</span><div><h3>{title}</h3><div class="tags">{tags.map((tag) => <span class="tag">{tag}</span>)}</div></div></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap profile-body">
+      <p class="eyebrow">Qualifications</p>
+      <div class="quals reveal">
+        {qualifications.map(([year, name]) => <div class="qual"><b>{year}</b><span>{name}</span></div>)}
+      </div>
+      <p class="eyebrow" style="margin-top:36px">Additional learning</p>
+      <div class="tags"><span class="tag">UGC-NET (Commerce)</span><span class="tag">Social audit</span><span class="tag">CSR and ESG</span><span class="tag">ISO 9001, 14001 and 45001 lead auditor training</span></div>
+    </div>
+  </section>
+
+  <section class="section tint">
+    <div class="wrap">
+      <p class="eyebrow">The venture ecosystem</p>
+      <h2 class="mb-8">Distinct mandates. <em>Shared discipline.</em></h2>
+      <div class="tiles c4 reveal">
+        {ventures.map(([mark, name, role, tags, href]) => (
+          <a class="tile" href={href}><span class="vmark">{mark}</span><small>{role}</small><strong>{name}</strong><div class="tags">{tags.map((tag) => <span class="tag">{tag}</span>)}</div></a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark">
+    <div class="wrap">
+      <p class="eyebrow">Start a conversation</p>
+      <h2>CPA firm partnerships, strategic advisory, institutional collaboration and <em>speaking.</em></h2>
+      <div class="hero-meta">
+        <a class="tag" href="mailto:camayankwadhera@gmail.com">camayankwadhera@gmail.com</a>
+        <a class="tag" href="tel:+918130645164">+91 81306 45164</a>
+        <a class="tag" href="https://www.linkedin.com/in/mayankwadhera" rel="noopener">linkedin.com/in/mayankwadhera</a>
+        <span class="tag">Gurugram, Haryana, India</span>
+      </div>
+      <div class="actions"><a class="btn solid" href="/enquire">Send an enquiry</a></div>
+    </div>
+  </section>
+</Layout>

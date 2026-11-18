@@ -38,7 +38,12 @@ const credentials = [
         <div>
           <HeroBadge>Technology-first · Professionally qualified</HeroBadge>
           <h1 class="mega" style="font-size:clamp(38px,5.6vw,76px)">Accounting and tax support <em>for US CPA firms.</em></h1>
-          <p class="hero-sub">Bookkeeping, month-end accounting and tax preparation support, alongside a US tax decision software platform. Led by a Chartered Accountant who spent six years building tax technology.</p>
+          <div class="hero-meta">
+            <span class="tag">Bookkeeping</span>
+            <span class="tag">Month-end accounting</span>
+            <span class="tag">Tax preparation support</span>
+            <span class="tag">US tax decision platform</span>
+          </div>
           <div class="actions">
             <a class="btn solid" href="/enquire?audience=accounting-us">Request a sample close pack</a>
             <a class="btn" href="/enquire?audience=accounting-us">Discuss a paid pilot</a>
@@ -142,13 +147,13 @@ const credentials = [
         <div>
           <p class="eyebrow">Who leads the work</p>
           <h2>CA Mayank Wadhera</h2>
-          <p class="hero-sub">Founder, CA4CPA Global LLC. Business analysis on MCA21 at Infosys and on the GSTN platform, then product management at EY on DigiGST and e-way bill management.</p>
+          <div class="tags" style="margin-top:14px"><span class="tag">Founder, CA4CPA Global LLC</span><span class="tag">Infosys · MCA21</span><span class="tag">GSTN</span><span class="tag">EY · DigiGST</span></div>
           <div class="seals" style="margin-top:22px">
             {credentials.map(([short, full]) => <span class="seal">{short}<small>{full}</small></span>)}
           </div>
           <div class="tags"><span class="tag">Registered Valuer · 2024</span><span class="tag">Insolvency Professional · 2024</span><span class="tag">M.Com. · 2014</span></div>
           <div class="actions">
-            <a class="btn solid" href="/Mayank-Wadhera-Professional-Profile.pdf" download>Download profile (PDF)</a>
+            <a class="btn solid" href="/profile">View full profile</a>
             <a class="btn" href="/about">About the founder</a>
             <a class="btn" href="https://www.linkedin.com/in/mayankwadhera" rel="noopener">LinkedIn</a>
           </div>
