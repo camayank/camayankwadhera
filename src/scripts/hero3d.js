@@ -110,9 +110,13 @@ export function mount(host) {
   new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; }).observe(host);
   gsap.ticker.add((time) => { if (visible) render(time); });
 
-  gsap.to(state, { assemble: 1, duration: 2.8, ease: "power2.inOut", delay: 0.5 });
+  const section = host.closest("section");
+  gsap.to(state, {
+    assemble: 1, duration: 2.8, ease: "power2.inOut",
+    scrollTrigger: { trigger: section, start: "top 70%", once: true },
+  });
   gsap.to(state, {
     scatter: 1, ease: "none",
-    scrollTrigger: { trigger: host.closest(".hero"), start: "top top", end: "bottom 20%", scrub: 0.8 },
+    scrollTrigger: { trigger: section, start: "bottom 75%", end: "bottom 10%", scrub: 0.8 },
   });
 }

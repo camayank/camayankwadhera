@@ -4,8 +4,8 @@ import { MonitorCheck, BadgeCheck, PenLine } from "lucide-react"
 import { AnimatedBeam } from "@/components/ui/animated-beam"
 
 const nodes = [
-  { label: "Software checks", Icon: MonitorCheck },
-  { label: "Qualified review", Icon: BadgeCheck },
+  { label: "We prepare", Icon: MonitorCheck },
+  { label: "We review", Icon: BadgeCheck },
   { label: "You sign", Icon: PenLine },
 ]
 

@@ -18,6 +18,8 @@ const proof = [
   { name: "CorpReady", note: "Founder" },
   { name: "Legal Suvidha", note: "Founder" },
   { name: "MKW Advisors", note: "Founder" },
+  { name: "GrowBiz", note: "Founder" },
+  { name: "First Unicorn", note: "Founder" },
 ];
 const cta = "h-11 rounded-xl px-5 text-sm no-underline";
 ---
@@ -31,18 +33,17 @@ const cta = "h-11 rounded-xl px-5 text-sm no-underline";
     <div class="wrap relative">
       <div class="hero-split">
         <div>
-          <HeroBadge>Chartered Accountant · Founder · Product builder</HeroBadge>
+          <HeroBadge>Founder · Finance · Technology</HeroBadge>
           <h1 class="mega">Rules, made <em>usable.</em></h1>
+          <p class="hero-sub">CA Mayank Wadhera. Domain and process expert. Business strategy and growth architect.</p>
           <div class="actions">
             <a class={buttonVariants({ size: "lg", class: cta })} href="/work-with-me">Work together <span aria-hidden="true">→</span></a>
             <a class={buttonVariants({ variant: "outline", size: "lg", class: cta })} href="/work">See the work</a>
           </div>
         </div>
-        <!-- This frame shows the 3D scene. To use a portrait instead, save the photo as public/portrait.jpg and
-             replace the inner <div class="portrait-ph" …>…</div> with <img src="/portrait.jpg" alt="Mayank Wadhera"> -->
         <figure class="portrait">
-          <div class="portrait-ph" data-hero-3d role="img" aria-label="Scattered tiles assembling into ordered ledger sheets">
-            <span class="portrait-mono">MW</span>
+          <div class="portrait-ph">
+            <img src="/portrait.jpg" alt="Mayank Wadhera" width="1024" height="1536" />
             <FrameBeam client:load />
           </div>
         </figure>
@@ -76,12 +77,18 @@ const cta = "h-11 rounded-xl px-5 text-sm no-underline";
 
   <section class="section dark">
     <div class="wrap">
-      <p class="eyebrow">How it starts</p>
-      <ol class="flow reveal">
-        <li><Icon name="doc" /><strong>Sample</strong></li>
-        <li><Icon name="screen" /><strong>Demo</strong></li>
-        <li><Icon name="loop" /><strong>Pilot</strong></li>
-      </ol>
+      <div class="scene-split">
+        <div>
+          <p class="eyebrow">How it starts</p>
+          <h2 class="mb-10">Complex rules in. <em>Usable systems out.</em></h2>
+          <ol class="flow reveal">
+            <li><Icon name="doc" /><strong>Sample</strong></li>
+            <li><Icon name="screen" /><strong>Demo</strong></li>
+            <li><Icon name="loop" /><strong>Pilot</strong></li>
+          </ol>
+        </div>
+        <div class="scene3d" data-hero-3d role="img" aria-label="Scattered tiles assembling into ordered ledger sheets"></div>
+      </div>
     </div>
   </section>
 

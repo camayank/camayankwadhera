@@ -1,21 +1,30 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Icon from "../components/Icon.astro";
+
+const qualifications = [
+  ["CA", "Chartered Accountant", "2011"],
+  ["CS", "Company Secretary", "2013"],
+  ["M.Com.", "Master of Commerce", "2014"],
+  ["CMA", "Cost & Management Accountant", "2016"],
+  ["LLB", "Bachelor of Laws", "2023"],
+];
 ---
-<Layout title="About \u2014 CA Mayank Wadhera" description="The journey, qualifications, teaching and speaking of Mayank Wadhera, Chartered Accountant, founder and product builder." current="about">
+<Layout title="About — CA Mayank Wadhera" description="Mayank Wadhera is an Indian Chartered Accountant, founder and business strategy advisor based in Gurugram: his journey, qualifications and professional profile." current="about">
 <section class="hero hero-visual">
   <div class="wrap">
     <div class="hero-split">
       <div>
         <p class="eyebrow"><b>01</b> About</p>
-        <h1 class="mega">Operator. Accountant. <em>Builder.</em></h1>
-      </div>
-      <!-- Replace the inner <div class="portrait-ph">…</div> with <img src="/portrait.jpg" alt="Mayank Wadhera"> -->
-      <figure class="portrait portrait-small">
-        <div class="portrait-ph" role="img" aria-label="Portrait placeholder">
-          <span class="portrait-mono">MW</span>
-          <span class="confirm">To add: your photo</span>
+        <h1 class="mega">Domain expert. <em>Product builder.</em></h1>
+        <p class="hero-sub">An Indian Chartered Accountant, founder and business strategy advisor based in Gurugram. I bring together finance, compliance, product design and operating processes to turn complex requirements into practical systems.</p>
+        <div class="actions">
+          <a class="btn solid" href="/Mayank-Wadhera-Professional-Profile.pdf" download>Download profile (PDF)</a>
+          <a class="btn" href="https://www.linkedin.com/in/mayankwadhera" rel="noopener">LinkedIn</a>
         </div>
+      </div>
+      <figure class="portrait portrait-small">
+        <div class="portrait-ph"><img src="/portrait.jpg" alt="Mayank Wadhera" width="1024" height="1536" /></div>
       </figure>
     </div>
   </div>
@@ -25,22 +34,21 @@ import Icon from "../components/Icon.astro";
   <div class="wrap">
     <p class="eyebrow">My journey</p>
     <ol class="journey reveal">
-      <li><span class="j-icon"><Icon name="signal" /></span><strong>Operator</strong><small>Cable operations · customers · execution</small></li>
-      <li><span class="j-icon"><Icon name="seal" /></span><strong>Chartered Accountant</strong><small>Finance · law · governance</small></li>
-      <li><span class="j-icon"><Icon name="columns" /></span><strong>Product analyst</strong><small>Infosys · GSTN · EY</small></li>
-      <li><span class="j-icon"><Icon name="blocks" /></span><strong>Founder</strong><small>Practice · software · education · cross-border</small></li>
+      <li><span class="j-icon"><Icon name="seal" /></span><strong>Chartered Accountant</strong><small>2011 · finance, law, governance</small></li>
+      <li><span class="j-icon"><Icon name="columns" /></span><strong>Infosys · MCA21</strong><small>2013 – 2015 · business analysis</small></li>
+      <li><span class="j-icon"><Icon name="doc" /></span><strong>GSTN · EY</strong><small>2015 – 2019 · GST platform and DigiGST</small></li>
+      <li><span class="j-icon"><Icon name="blocks" /></span><strong>Founder</strong><small>2017 onward · venture ecosystem</small></li>
     </ol>
-    <p class="mt-7"><span class="confirm">To add: a year under each stage</span></p>
   </div>
 </section>
 
 <section class="section dark">
   <div class="wrap">
-    <p class="eyebrow">Corporate product work</p>
+    <p class="eyebrow">Where domain meets product</p>
     <div class="tiles c3 reveal">
-      <a class="tile" href="/work#public"><Icon name="columns" /><strong>Infosys</strong><small>MCA21 · business analysis</small></a>
-      <a class="tile" href="/work#public"><Icon name="doc" /><strong>GSTN</strong><small>GST systems · business analysis</small></a>
-      <a class="tile" href="/work#public"><Icon name="screen" /><strong>EY</strong><small>DigiGST · e-way bill product work</small></a>
+      <a class="tile" href="/work#public"><Icon name="columns" /><small>2013 – 2015</small><strong>Infosys · MCA21</strong><small>Business analysis for the corporate regulatory platform: regulatory requirements into functional processes.</small></a>
+      <a class="tile" href="/work#public"><Icon name="doc" /><small>2015 – 2016</small><strong>GSTN</strong><small>Business analysis in the GST technology ecosystem, connecting tax requirements with platform workflows.</small></a>
+      <a class="tile" href="/work#public"><Icon name="screen" /><small>2016 – 2019</small><strong>EY · DigiGST and EWBMS</strong><small>Product management across GST and e-way bill solutions.</small></a>
     </div>
   </div>
 </section>
@@ -49,37 +57,36 @@ import Icon from "../components/Icon.astro";
   <div class="wrap">
     <p class="eyebrow">Qualifications and professional roles</p>
     <div class="seals reveal">
-      <span class="seal">CA</span><span class="seal">CS</span><span class="seal">CMA</span><span class="seal">M.Com</span><span class="seal">NET</span><span class="seal">LLB</span>
+      {qualifications.map(([short, full, year]) => <span class="seal">{short}<small>{full} · {year}</small></span>)}
     </div>
-    <div class="tiles c4 reveal">
-      <div class="tile"><Icon name="scale" /><strong>Registered Valuer</strong><small>Securities or Financial Assets</small></div>
-      <div class="tile"><Icon name="loop" /><strong>Insolvency Professional</strong></div>
-      <div class="tile"><Icon name="people" /><strong>Governance and board</strong></div>
-      <div class="tile"><Icon name="leaf" /><strong>ISO · Social audit · CSR · ESG</strong></div>
+    <div class="tiles c3 reveal">
+      <div class="tile"><Icon name="scale" /><small>2024</small><strong>Registered Valuer</strong><small>Securities or Financial Assets</small></div>
+      <div class="tile"><Icon name="loop" /><small>2024</small><strong>Insolvency Professional</strong></div>
+      <div class="tile"><Icon name="leaf" /><strong>Additional learning</strong><small>UGC-NET (Commerce); social audit; CSR and ESG; ISO 9001, 14001 and 45001 lead auditor training</small></div>
     </div>
-    <p class="mt-6"><span class="confirm">To add for each: issuer, date, registration and verification link, engagement entity</span></p>
   </div>
 </section>
 
 <section class="section" id="teaching">
   <div class="wrap">
-    <p class="eyebrow">Teaching and speaking</p>
-    <div class="tiles c3 reveal">
-      <div class="tile"><Icon name="book" /><strong>Professional education</strong><small>ICAI and professional bodies</small></div>
-      <div class="tile"><Icon name="briefcase" /><strong>Industry training</strong><small>GST and compliance</small></div>
-      <div class="tile"><Icon name="cap" /><strong>College sessions</strong><small>Careers and employability</small></div>
+    <p class="eyebrow">Speaking and collaboration</p>
+    <div class="tiles c4 reveal">
+      <div class="tile"><Icon name="globe" /><strong>CPA firm partnerships</strong></div>
+      <div class="tile"><Icon name="scale" /><strong>Strategic advisory</strong></div>
+      <div class="tile"><Icon name="cap" /><strong>Institutional collaboration</strong></div>
+      <div class="tile"><Icon name="mic" /><strong>Speaking</strong></div>
     </div>
-    <div class="actions"><a class="btn solid" href="/enquire?audience=speaking">Invite me to speak</a></div>
+    <div class="actions"><a class="btn solid" href="/enquire?audience=speaking">Start a conversation</a></div>
   </div>
 </section>
 
 <section class="section tint" id="assets">
   <div class="wrap">
-    <p class="eyebrow">Bio and headshot</p>
+    <p class="eyebrow">For organizers and editors</p>
     <div class="tiles c3 reveal">
-      <div class="tile"><Icon name="pen" /><strong>Short bio</strong><small>Mayank Wadhera is a Chartered Accountant, founder and product builder working across finance, compliance technology and employability. He has worked on MCA21 at Infosys, GST systems at GSTN and DigiGST at EY, and founded DigiComply, CA4CPA and CorpReady.</small></div>
-      <div class="tile"><Icon name="download" /><strong>Full bio and timeline</strong><span class="confirm">To add: PDF</span></div>
-      <div class="tile"><Icon name="user" /><strong>Headshot</strong><span class="confirm">To add: approved photo</span></div>
+      <div class="tile"><Icon name="pen" /><strong>Short bio</strong><small>Mayank Wadhera is an Indian Chartered Accountant, founder and business strategy advisor based in Gurugram. His career spans business analysis at Infosys on MCA21, work on the GSTN platform, and product management at EY on DigiGST and e-way bill management. He now builds ventures across accounting support, regulatory technology, valuation, employability and business growth.</small></div>
+      <a class="tile" href="/Mayank-Wadhera-Professional-Profile.pdf" download><Icon name="download" /><strong>Professional profile</strong><small>Three pages: overview, experience, qualifications and ventures</small><span class="go">Download PDF</span></a>
+      <a class="tile" href="/portrait.jpg" download="Mayank-Wadhera.jpg"><Icon name="user" /><strong>Headshot</strong><small>Portrait photograph</small><span class="go">Download image</span></a>
     </div>
   </div>
 </section>

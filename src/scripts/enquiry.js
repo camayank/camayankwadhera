@@ -1,15 +1,17 @@
-// Enquiry form: preselect the audience from ?audience=, and show where the enquiry will be routed.
+// Enquiry form: preselect the audience from ?audience=, show which venture the enquiry concerns,
+// and on submit open the visitor's own email app with the message filled in.
+const TO = "camayankwadhera@gmail.com";
 const ROUTES = {
-  "accounting-us": { to: "CA4CPA", next: "A sample close pack, then a scope call" },
-  "accounting-intl": { to: "CA4CPA KPO Solutions", next: "Sample output, then a scope call" },
-  "founder-compliance": { to: "Legal Suvidha", next: "Compliance enquiry" },
-  "founder-software": { to: "DigiComply", next: "Product walkthrough" },
-  "founder-advisory": { to: "MKW Advisors", next: "Advisory scope discussion" },
-  "founder-growth": { to: "GrowBiz10x", next: "Growth execution discussion" },
-  board: { to: "MKW Advisors", next: "Share the mandate and request a discussion" },
-  college: { to: "CorpReady Academy", next: "Diagnostic, orientation or campus pilot discussion" },
-  employer: { to: "CorpReady Academy", next: "Hiring and talent readiness discussion" },
-  speaking: { to: "Mayank Wadhera (direct)", next: "Confirm topic, audience, dates and format" },
+  "accounting-us": { to: "CA4CPA", next: "a sample close pack, then a scope call" },
+  "accounting-intl": { to: "CA4CPA", next: "sample output, then a scope call" },
+  "founder-compliance": { to: "Legal Suvidha", next: "a compliance discussion" },
+  "founder-software": { to: "DigiComply", next: "a product walkthrough" },
+  "founder-advisory": { to: "MKW Advisors", next: "an advisory scope discussion" },
+  "founder-growth": { to: "GrowBiz", next: "a growth discussion" },
+  board: { to: "MKW Advisors", next: "a discussion of the mandate" },
+  college: { to: "CorpReady", next: "a partnership discussion" },
+  employer: { to: "CorpReady", next: "a hiring and talent discussion" },
+  speaking: { to: "Mayank Wadhera", next: "confirming topic, audience, dates and format" },
 };
 
 const form = document.getElementById("enquiry");
@@ -21,19 +23,26 @@ if (form) {
   const hint = document.getElementById("route-hint");
   const showHint = () => {
     const route = ROUTES[audience.value];
-    hint.textContent = route ? `This will go to ${route.to}. Usual next step: ${route.next}.` : "";
+    hint.textContent = route ? `This concerns ${route.to}. The usual next step is ${route.next}.` : "";
   };
   audience.addEventListener("change", showHint);
   showHint();
 
   form.addEventListener("submit", (event) => {
-    if (form.getAttribute("action")) return; // a real endpoint is connected: let the browser submit
     event.preventDefault();
-    const route = ROUTES[audience.value] || { to: "Mayank Wadhera (direct)", next: "Reply by email" };
-    const out = document.getElementById("routed");
-    out.hidden = false;
-    out.querySelector("[data-to]").textContent = route.to;
-    out.querySelector("[data-next]").textContent = route.next;
-    out.scrollIntoView({ behavior: "smooth", block: "center" });
+    const value = (name) => form.elements[name].value.trim();
+    const route = ROUTES[audience.value];
+    const label = audience.options[audience.selectedIndex].text;
+    const subject = `Enquiry for ${route ? route.to : "Mayank Wadhera"} from ${value("name")}`;
+    const body = [
+      `I am: ${label}`,
+      `Name: ${value("name")}`,
+      `Organization: ${value("organization")}`,
+      `Country: ${value("country")}`,
+      `Preferred next step: ${value("next_step")}`,
+      "",
+      value("need"),
+    ].join("\n");
+    location.href = `mailto:${TO}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   });
 }
