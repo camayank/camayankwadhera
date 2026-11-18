@@ -1,0 +1,80 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Icon from "../components/Icon.astro";
+
+// Standard operating procedures in offshore accounting delivery, grouped into four layers.
+const layers = [
+  { name: "Set up", items: [["doc", "Scope and agreement"], ["seal", "Client consent"], ["shield", "Secure access"], ["book", "Firm playbook"]] },
+  { name: "Run", items: [["check", "Intake checklist"], ["people", "Allocation"], ["pen", "Preparation"], ["chat", "Query log"], ["layers", "Review layers"], ["send", "Delivery"]] },
+  { name: "Control", items: [["clock", "Turnaround"], ["target", "Quality score"], ["alert", "Error log"], ["calendar", "Status cadence"], ["growth", "Reporting"]] },
+  { name: "Scale", items: [["cap", "Training"], ["user", "Backup staff"], ["bolt", "Peak capacity"], ["plug", "Continuity"], ["loop", "Feedback loop"]] },
+];
+const total = layers.reduce((sum, layer) => sum + layer.items.length, 0);
+---
+<Layout
+  title="How offshore delivery runs — CA4CPA"
+  description="The standard operating procedures behind offshore accounting and tax delivery, shown as four layers: set up, run, control and scale."
+  current="ventures"
+>
+  <section class="hero page-hero" data-no={String(total)}>
+    <div class="wrap">
+      <p class="eyebrow"><b>CA4CPA</b> How delivery runs</p>
+      <h1 class="mega">{total} procedures. <em>One system.</em></h1>
+    </div>
+  </section>
+
+  <!-- Scroll-driven exploded view. Without scripts or with reduced motion it shows all four layers at once. -->
+  <section class="sop" data-sop>
+    <div class="wrap sop-grid">
+      <div class="sop-side">
+        <p class="eyebrow">Four layers</p>
+        <ol class="walk-steps sop-steps">
+          {layers.map((layer, index) => (
+            <li><b>0{index + 1}</b><strong>{layer.name}</strong><i>{layer.items.length}</i></li>
+          ))}
+        </ol>
+        <div class="sop-legends">
+          {layers.map((layer) => (
+            <ul class="sop-legend">
+              {layer.items.map(([icon, label]) => <li><Icon name={icon} />{label}</li>)}
+            </ul>
+          ))}
+        </div>
+      </div>
+      <div class="sop-stage" aria-hidden="true">
+        <div class="sop-stack">
+          {layers.map((layer, index) => (
+            <div class="plate3d" style={`--l:${index}`}>
+              <span class="plate-name">{layer.name}</span>
+              {layer.items.map(([icon]) => (
+                <div class="chip"><div class="chip-face"><Icon name={icon} /></div></div>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      {layers.map((layer, index) => (
+        <>
+          <div class="band reveal"><span class="band-no">0{index + 1}</span><h2>{layer.name}</h2></div>
+          <div class={`tiles c${Math.min(layer.items.length, 5) === 4 ? 4 : layer.items.length === 6 ? 3 : 5} reveal`}>
+            {layer.items.map(([icon, label]) => <div class="tile"><Icon name={icon} /><strong>{label}</strong></div>)}
+          </div>
+        </>
+      ))}
+      <p class="mt-7"><span class="confirm">Standard offshore practice. To confirm: which of these CA4CPA runs today, and the evidence for each.</span></p>
+      <div class="actions">
+        <a class="btn solid" href="/ca4cpa">Watch a month close</a>
+        <a class="btn" href="/enquire?audience=accounting-us">Request a sample month</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  import "../scripts/sop.js";
+</script>

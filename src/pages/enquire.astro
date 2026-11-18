@@ -1,0 +1,70 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+<Layout title="Enquire \u2014 CA Mayank Wadhera" description="Send an enquiry to Mayank Wadhera. Tell us who you are, where you are and what you need, and it is routed to the right venture." current="enquire">
+<section class="hero page-hero" data-no="07">
+  <div class="wrap">
+    <p class="eyebrow"><b>07</b> Enquiries</p>
+    <h1>Tell me who you are and <em>what you need.</em></h1>
+    <p class="lede">Four answers are enough to route your enquiry to the right venture or professional contact.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <!-- Set action="https://…" to a form endpoint to go live. While action is empty the form only previews the routing. -->
+    <form class="form" id="enquiry" method="post" action="">
+      <div class="full">
+        <label for="audience">I am</label>
+        <select id="audience" name="audience" required>
+          <option value="">Choose one</option>
+          <optgroup label="Accounting firms">
+            <option value="accounting-us">A US CPA firm</option>
+            <option value="accounting-intl">An accounting practice outside the US</option>
+          </optgroup>
+          <optgroup label="Founders and business owners">
+            <option value="founder-compliance">Looking for startup or recurring compliance</option>
+            <option value="founder-software">Looking for compliance workflow software</option>
+            <option value="founder-advisory">Looking for valuation, operations or cross-border advisory</option>
+            <option value="founder-growth">Looking for growth execution</option>
+          </optgroup>
+          <optgroup label="Others">
+            <option value="board">A board member or investor</option>
+            <option value="college">A college leader</option>
+            <option value="employer">An employer</option>
+            <option value="speaking">An event organizer or professional body</option>
+          </optgroup>
+        </select>
+        <p class="form-note" id="route-hint" aria-live="polite" style="margin:10px 0 0"></p>
+      </div>
+      <div><label for="name">Name</label><input id="name" name="name" autocomplete="name" required></div>
+      <div><label for="email">Work email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+      <div><label for="org">Organization</label><input id="org" name="organization" autocomplete="organization"></div>
+      <div><label for="country">Country</label><input id="country" name="country" autocomplete="country-name" required></div>
+      <div class="full"><label for="need">What do you need?</label><textarea id="need" name="need" required placeholder="For speaking: topic, audience, dates and format. For firms: the work type and rough volume."></textarea></div>
+      <div class="full">
+        <label for="next">Preferred next step</label>
+        <select id="next" name="next_step">
+          <option>A call</option>
+          <option>A demo</option>
+          <option>Sample work or output</option>
+          <option>A proposal</option>
+          <option>A reply by email</option>
+        </select>
+      </div>
+      <div class="full">
+        <button class="btn solid" type="submit">Send enquiry</button>
+        <p class="form-note" style="margin-top:14px">Your details are used only to respond to this enquiry. See the <a href="/privacy">privacy page</a>.</p>
+      </div>
+    </form>
+
+    <div class="routed" id="routed" hidden>
+      <h3>Preview only: nothing was sent</h3>
+      <p>This form is not connected to an inbox yet. Once connected, this enquiry would be routed to <strong data-to></strong>. Usual next step: <span data-next></span>.</p>
+    </div>
+  </div>
+</section>
+</Layout>
+<script>
+  import "../scripts/enquiry.js";
+</script>

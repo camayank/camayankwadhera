@@ -1,0 +1,82 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Icon from "../components/Icon.astro";
+import { WorldGlobe } from "@/components/kit/WorldGlobe";
+---
+<Layout title="Work With Me \u2014 CA Mayank Wadhera" description="Ways to work with Mayank Wadhera: accounting firm partnerships, founders and business owners, boards and investors, colleges and employers, speaking and training." current="with-me">
+<section class="hero page-hero" data-no="05">
+  <div class="wrap">
+    <p class="eyebrow"><b>05</b> Work with me</p>
+    <h1 class="mega">Who are <em>you?</em></h1>
+    <div class="tiles c5" style="margin-top:44px">
+      <a class="tile" href="#accounting"><Icon name="globe" /><strong>Accounting firm</strong></a>
+      <a class="tile" href="#founders"><Icon name="blocks" /><strong>Founder</strong></a>
+      <a class="tile" href="#boards"><Icon name="people" /><strong>Board or investor</strong></a>
+      <a class="tile" href="#colleges"><Icon name="cap" /><strong>College or employer</strong></a>
+      <a class="tile" href="#speaking"><Icon name="mic" /><strong>Event organizer</strong></a>
+    </div>
+  </div>
+</section>
+
+<section class="section dark" id="accounting">
+  <div class="wrap">
+    <div class="grid items-center gap-8 md:grid-cols-[1.1fr_.9fr]">
+      <div><div class="band"><Icon name="globe" /><h2>Accounting firms, <em>worldwide</em></h2></div>
+      <p class="lede">Delivered from India, for practices anywhere.</p></div>
+      <WorldGlobe client:visible />
+    </div>
+    <div class="lanes reveal">
+      <div class="lane"><div><small>US CPA firms</small><strong>Product route</strong></div><div class="steps big"><span>Sample tax workflow</span><span>Demo</span><span>Paid software pilot</span></div></div>
+      <div class="lane"><div><small>US CPA firms</small><strong>Delivery route</strong></div><div class="steps big"><span>Capacity need</span><span>Scoped batch</span><span>Review</span><span>Repeat work</span></div></div>
+      <div class="lane"><div><small>Outside the US</small><strong>Practice support</strong></div><div class="steps big"><span>Sample output</span><span>Scope call</span><span>Paid delivery pilot</span></div></div>
+    </div>
+    <div class="actions"><a class="btn" href="/enquire?audience=accounting-us" style="background:var(--paper);color:var(--ink);border-color:var(--paper)">Book a partnership call</a><a class="btn" href="/ca4cpa" style="color:var(--paper);border-color:var(--paper)">See how it works</a></div>
+  </div>
+</section>
+
+<section class="section" id="founders">
+  <div class="wrap">
+    <div class="band"><Icon name="blocks" /><h2>Founders and business owners</h2></div>
+    <div class="tiles c4 reveal">
+      <a class="tile" href="/enquire?audience=founder-compliance"><Icon name="check" /><strong>Compliance</strong><small>Legal Suvidha</small><span class="go">Enquire</span></a>
+      <a class="tile" href="/enquire?audience=founder-software"><Icon name="screen" /><strong>Workflow software</strong><small>DigiComply</small><span class="go">Walkthrough</span></a>
+      <a class="tile" href="/enquire?audience=founder-advisory"><Icon name="scale" /><strong>Advisory</strong><small>MKW Advisors</small><span class="go">Scope discussion</span></a>
+      <a class="tile" href="/enquire?audience=founder-growth"><Icon name="growth" /><strong>Growth</strong><small>GrowBiz10x</small><span class="go">Growth discussion</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="section tint" id="boards">
+  <div class="wrap">
+    <div class="band"><Icon name="people" /><h2>Boards and investors</h2></div>
+    <div class="tiles c3 reveal">
+      <a class="tile" href="/enquire?audience=board"><Icon name="scale" /><strong>Valuation and transactions</strong></a>
+      <a class="tile" href="/enquire?audience=board"><Icon name="people" /><strong>Board and governance</strong></a>
+      <a class="tile" href="/enquire?audience=board"><Icon name="loop" /><strong>Insolvency-related</strong></a>
+    </div>
+    <div class="actions"><a class="btn solid" href="/enquire?audience=board">Share the mandate</a></div>
+  </div>
+</section>
+
+<section class="section" id="colleges">
+  <div class="wrap">
+    <div class="band"><Icon name="cap" /><h2>Colleges and employers</h2></div>
+    <div class="tiles c2 reveal">
+      <a class="tile" href="/enquire?audience=college"><Icon name="columns" /><strong>College leaders</strong><div class="steps"><span>Diagnostic</span><span>Orientation</span><span>Campus pilot</span></div><span class="go">College partnership</span></a>
+      <a class="tile" href="/enquire?audience=employer"><Icon name="briefcase" /><strong>Employers</strong><div class="tags"><span class="tag">Hiring</span><span class="tag">Role readiness</span><span class="tag">Talent partnerships</span></div><span class="go">Employer partnership</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="section tint" id="speaking">
+  <div class="wrap">
+    <div class="band"><Icon name="mic" /><h2>Speaking and training</h2></div>
+    <div class="tiles c3 reveal">
+      <a class="tile" href="/enquire?audience=speaking"><Icon name="mic" /><strong>Keynotes and panels</strong><small>Event organizers</small></a>
+      <a class="tile" href="/enquire?audience=speaking"><Icon name="book" /><strong>Workshops</strong><small>Professional bodies</small></a>
+      <a class="tile" href="/enquire?audience=speaking"><Icon name="cap" /><strong>Career sessions</strong><small>Colleges</small></a>
+    </div>
+    <div class="actions"><a class="btn solid" href="/enquire?audience=speaking">Share topic and dates</a></div>
+  </div>
+</section>
+</Layout>

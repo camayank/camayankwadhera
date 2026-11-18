@@ -1,0 +1,100 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Icon from "../components/Icon.astro";
+import { buttonVariants } from "@/components/ui/button";
+import { HeroBadge } from "@/components/kit/HeroBadge";
+import { HeroDots } from "@/components/kit/HeroDots";
+import { FrameBeam } from "@/components/kit/FrameBeam";
+import { LogoMarquee } from "@/components/kit/LogoMarquee";
+import { VentureBento } from "@/components/kit/VentureBento";
+import { AudienceCards } from "@/components/kit/AudienceCards";
+
+const proof = [
+  { name: "MCA21", note: "Infosys" },
+  { name: "GSTN", note: "GST systems" },
+  { name: "DigiGST", note: "EY" },
+  { name: "DigiComply", note: "Founder" },
+  { name: "CA4CPA", note: "Founder" },
+  { name: "CorpReady", note: "Founder" },
+  { name: "Legal Suvidha", note: "Founder" },
+  { name: "MKW Advisors", note: "Founder" },
+];
+const cta = "h-11 rounded-xl px-5 text-sm no-underline";
+---
+<Layout
+  title="CA Mayank Wadhera — Chartered Accountant, founder and product builder"
+  description="Mayank Wadhera turns complex finance and compliance requirements into products, delivery systems and training that people can use."
+  current="home"
+>
+  <section class="hero hero-visual relative overflow-hidden">
+    <HeroDots client:load />
+    <div class="wrap relative">
+      <div class="hero-split">
+        <div>
+          <HeroBadge>Chartered Accountant · Founder · Product builder</HeroBadge>
+          <h1 class="mega">Rules, made <em>usable.</em></h1>
+          <div class="actions">
+            <a class={buttonVariants({ size: "lg", class: cta })} href="/work-with-me">Work together <span aria-hidden="true">→</span></a>
+            <a class={buttonVariants({ variant: "outline", size: "lg", class: cta })} href="/work">See the work</a>
+          </div>
+        </div>
+        <!-- This frame shows the 3D scene. To use a portrait instead, save the photo as public/portrait.jpg and
+             replace the inner <div class="portrait-ph" …>…</div> with <img src="/portrait.jpg" alt="Mayank Wadhera"> -->
+        <figure class="portrait">
+          <div class="portrait-ph" data-hero-3d role="img" aria-label="Scattered tiles assembling into ordered ledger sheets">
+            <span class="portrait-mono">MW</span>
+            <FrameBeam client:load />
+          </div>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <LogoMarquee items={proof} />
+
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">The journey</p>
+      <ol class="journey reveal">
+        <li><span class="j-icon"><Icon name="signal" /></span><strong>Operator</strong><small>Cable operations</small></li>
+        <li><span class="j-icon"><Icon name="seal" /></span><strong>Chartered Accountant</strong><small>Finance, law, governance</small></li>
+        <li><span class="j-icon"><Icon name="columns" /></span><strong>Product analyst</strong><small>Infosys · GSTN · EY</small></li>
+        <li><span class="j-icon"><Icon name="blocks" /></span><strong>Founder</strong><small>Products and delivery</small></li>
+      </ol>
+      <div class="actions"><a class="btn" href="/about">Full journey</a></div>
+    </div>
+  </section>
+
+  <section class="section tint">
+    <div class="wrap">
+      <p class="eyebrow">What I'm building</p>
+      <h2 class="mb-8">Five ventures. <em>One builder.</em></h2>
+      <VentureBento />
+      <div class="actions"><a class="btn" href="/ventures">All ventures</a></div>
+    </div>
+  </section>
+
+  <section class="section dark">
+    <div class="wrap">
+      <p class="eyebrow">How it starts</p>
+      <ol class="flow reveal">
+        <li><Icon name="doc" /><strong>Sample</strong></li>
+        <li><Icon name="screen" /><strong>Demo</strong></li>
+        <li><Icon name="loop" /><strong>Pilot</strong></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">Who are you?</p>
+      <AudienceCards client:visible />
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // Load the 3D scene only on this page, after the rest of the page is ready
+  const host = document.querySelector("[data-hero-3d]");
+  if (host) import("../scripts/hero3d.js").then((scene) => scene.mount(host));
+</script>
