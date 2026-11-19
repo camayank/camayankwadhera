@@ -27,11 +27,27 @@ npm run build
 | Path | What it holds |
 |---|---|
 | `src/pages/` | One file per page (`index`, `about`, `ventures`, `work`, `insights`, `work-with-me`, `ca4cpa`, `sop`, `profile`, `enquire`, `privacy`, `404`) |
+| `src/pages/tools/` | The advance tax tools: hub, calculator, what-if planner, tax statement check, reminders |
+| `src/components/tools/` | The interactive part of each tool (React) |
+| `src/lib/tax/` | The tax rules and arithmetic, with no browser code, so they can be tested |
+| `tests/` | Hand-worked cases for the tax arithmetic |
 | `src/layouts/Layout.astro` | Shared header, footer and page shell |
 | `src/components/kit/` | Sections built from Magic UI components |
 | `src/components/ui/` | shadcn/ui and Magic UI components |
 | `src/scripts/` | Motion, the 3D hero, the month-end walkthrough, the procedures stack, the enquiry form |
 | `src/styles/global.css` | Design tokens and component styles |
+
+## Advance tax tools
+
+The tools at `/tools` run entirely in the visitor's browser. Nothing is sent to a server; the calculator's figures are kept in the browser's own storage so the other tools can use them.
+
+All rates, limits and dates for the tax year are in the `RULES` object at the top of `src/lib/tax/india.ts`, with the sections of the Income-tax Act, 2025 they come from. When a Finance Act changes them, or a new tax year starts, update `RULES` and the cases in `tests/tax.test.ts`, then run:
+
+```bash
+npm test
+```
+
+The tests need Node 22.18 or later, which runs TypeScript files directly.
 
 ## Deploying
 
