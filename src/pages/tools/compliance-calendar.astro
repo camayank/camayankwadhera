@@ -1,0 +1,19 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { ComplianceCalendar } from "../../components/tools/ComplianceCalendar";
+---
+<Layout title="Compliance calendar for Indian businesses: income tax, TDS, GST, PF and ROC — CA Mayank Wadhera" description="Pick your business type and registrations and get every income tax, TDS, GST, PF, ESI and ROC due date for the next twelve months, as one calendar file with alerts." current="tools">
+<section class="hero page-hero t-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="/tools">Tools</a> · Compliance calendar</p>
+    <h1>Every due date, <em>in one calendar.</em></h1>
+    <p class="lede">Tell the calendar what kind of business you run. It lists the income tax, TDS, GST, PF and ROC dates that apply for the next twelve months, and puts them in your calendar with alerts.</p>
+  </div>
+</section>
+<section class="section t-section">
+  <div class="wrap">
+    <ComplianceCalendar client:load />
+    <noscript><p>This tool needs JavaScript, because it builds the calendar in your browser.</p></noscript>
+  </div>
+</section>
+</Layout>

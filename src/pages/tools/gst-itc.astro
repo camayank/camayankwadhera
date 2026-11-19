@@ -1,0 +1,19 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { ItcMatch } from "../../components/tools/ItcMatch";
+---
+<Layout title="GST input tax credit match: GSTR-2B against your purchase register — CA Mayank Wadhera" description="Match GSTR-2B with your purchase register invoice by invoice. See the credit at risk, the credit you have not booked, and a message for each supplier to chase. Nothing leaves your browser." current="tools">
+<section class="hero page-hero t-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="/tools">Tools</a> · GST credit match</p>
+    <h1>Every rupee of credit, <em>matched.</em></h1>
+    <p class="lede">Paste GSTR-2B on one side and your purchase register on the other. The match goes invoice by invoice, puts a figure on the credit at risk, and writes the message for each supplier who has not reported.</p>
+  </div>
+</section>
+<section class="section t-section">
+  <div class="wrap">
+    <ItcMatch client:load />
+    <noscript><p>This tool needs JavaScript, because it does its work in your browser and sends nothing to a server.</p></noscript>
+  </div>
+</section>
+</Layout>

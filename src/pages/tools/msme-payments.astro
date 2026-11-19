@@ -1,0 +1,19 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { MsmeCheck } from "../../components/tools/MsmeCheck";
+---
+<Layout title="MSME 45-day payment check: section 37(2)(g), formerly 43B(h) — CA Mayank Wadhera" description="Check bills from micro and small suppliers against the 15 and 45 day limits. See the deduction lost for the year, what to pay before 31 March, and the pay-by date for each bill. Nothing leaves your browser." current="tools">
+<section class="hero page-hero t-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="/tools">Tools</a> · MSME payments</p>
+    <h1>Pay the small supplier late, <em>lose the deduction.</em></h1>
+    <p class="lede">A bill from a micro or small enterprise must be paid within 15 days, or within the days agreed in writing up to 45. Miss that and the expense counts only in the year you pay. Paste your payables to see which bills are at risk and what it costs.</p>
+  </div>
+</section>
+<section class="section t-section">
+  <div class="wrap">
+    <MsmeCheck client:load />
+    <noscript><p>This tool needs JavaScript, because it does its work in your browser and sends nothing to a server.</p></noscript>
+  </div>
+</section>
+</Layout>

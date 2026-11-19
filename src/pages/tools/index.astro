@@ -4,15 +4,15 @@ import Icon from "../../components/Icon.astro";
 import { RULES } from "../../lib/tax/india";
 ---
 <Layout
-  title="Advance tax tools for founders and investors — CA Mayank Wadhera"
-  description="Free tools for Indian advance tax: work out each instalment, test what a share sale or dividend does to the next one, check your tax statement against your records, and put the dates in your calendar. Everything runs in your browser."
+  title="Free tax and compliance tools for founders and CA firms — CA Mayank Wadhera"
+  description="Free tools for Indian tax and compliance: advance tax, GST credit match against GSTR-2B, MSME 45-day payments, AIS and 26AS checks, and a full compliance calendar. Everything runs in your browser."
   current="tools"
 >
 <section class="hero page-hero">
   <div class="wrap">
     <p class="eyebrow">Tools · Tax Year {RULES.taxYear}</p>
-    <h1 class="mega">Advance tax, <em>without the surprise.</em></h1>
-    <p class="lede">For founders, investors and professionals whose income does not arrive in twelve equal parts. An exit, a secondary sale, a dividend or a large fee changes what you owe on the next instalment date. These tools show the number before the date arrives.</p>
+    <h1 class="mega">Compliance, <em>without the surprise.</em></h1>
+    <p class="lede">For founders who want to see the number before the due date, and for CA firms who do the same checks for a hundred clients every month. Each tool takes the data you already have, applies the rule, and shows what it costs to get it wrong.</p>
     <div class="hero-meta">
       <span class="tag">Free</span>
       <span class="tag">No sign-up</span>
@@ -24,6 +24,9 @@ import { RULES } from "../../lib/tax/india";
 
 <section class="section">
   <div class="wrap">
+    <div class="sec-head">
+      <h2>Advance tax. <em>Pay the right amount on each date.</em></h2>
+    </div>
     <div class="tiles c2 reveal">
       <a class="tile" href="/tools/advance-tax">
         <Icon name="target" /><small>Start here</small><strong>Advance tax calculator</strong>
@@ -36,16 +39,64 @@ import { RULES } from "../../lib/tax/india";
         <span class="go">Test a transaction</span>
       </a>
       <a class="tile" href="/tools/reconcile">
-        <Icon name="check" /><small>Before you pay</small><strong>Tax statement check</strong>
+        <Icon name="check" /><small>Before you pay</small><strong>AIS and 26AS check</strong>
         <p class="t-tile">Compare the TDS and income in your AIS or Form 26AS with your own records, party by party, and find what differs or is missing.</p>
         <span class="go">Compare the two</span>
       </a>
       <a class="tile" href="/tools/reminders">
-        <Icon name="calendar" /><small>So it is not missed</small><strong>Due-date reminders</strong>
+        <Icon name="calendar" /><small>So it is not missed</small><strong>Advance tax reminders</strong>
         <p class="t-tile">The instalment dates for the year as calendar entries with alerts, with your own amounts in them if you want.</p>
         <span class="go">Add to my calendar</span>
       </a>
     </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Running the business. <em>Credit, payments, dates.</em></h2>
+    </div>
+    <div class="tiles c2 reveal">
+      <a class="tile" href="/tools/gst-itc">
+        <Icon name="check" /><small>Every month, before GSTR-3B</small><strong>GST credit match</strong>
+        <p class="t-tile">Match GSTR-2B with your purchase register invoice by invoice. See the credit at risk and get a message for each supplier who has not reported.</p>
+        <span class="go">Match my credit</span>
+      </a>
+      <a class="tile" href="/tools/msme-payments">
+        <Icon name="target" /><small>Before 31 March</small><strong>MSME 45-day payments</strong>
+        <p class="t-tile">Check bills from micro and small suppliers against the 15 and 45 day limits. See the deduction you lose and what to pay before the year ends.</p>
+        <span class="go">Check my payables</span>
+      </a>
+      <a class="tile" href="/tools/compliance-calendar">
+        <Icon name="calendar" /><small>All year</small><strong>Compliance calendar</strong>
+        <p class="t-tile">Income tax, TDS, GST, PF, ESI and ROC dates for your kind of business over the next twelve months, as one calendar file with alerts.</p>
+        <span class="go">Build my calendar</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Coming next. <em>Built the same way.</em></h2>
+      <p class="lede">Each of these takes a problem founders and CA firms meet every month, and puts the rule in code with tested cases.</p>
+    </div>
+    <ul class="t-roadmap reveal">
+      <li><small>Founders and firms</small><strong>TDS checker</strong><span>Read the expense ledger and flag payments that needed TDS, at which rate, and the interest if it was missed.</span></li>
+      <li><small>CA firms</small><strong>GSTR-9 and 9C reconciliation</strong><span>Books against GSTR-1 and GSTR-3B for the year, with each difference explained.</span></li>
+      <li><small>CA firms</small><strong>Old Act to new Act finder</strong><span>Look up any section of the Income-tax Act, 1961 and find its place in the 2025 Act, and back.</span></li>
+      <li><small>CA firms</small><strong>Client document checklist</strong><span>The documents each service needs, sent to the client with reminders until they arrive.</span></li>
+      <li><small>Founders</small><strong>ROC late fee and status check</strong><span>Which annual filings are due or overdue for a company or LLP, and what the delay has cost so far.</span></li>
+      <li><small>Founders</small><strong>ESOP tax</strong><span>Tax at exercise and at sale for employees of listed and unlisted companies, including eligible startups.</span></li>
+      <li><small>Founders</small><strong>Monthly MIS from the trial balance</strong><span>Profit and loss, burn and runway from a trial balance export, in a form an investor reads.</span></li>
+      <li><small>Founders</small><strong>Bank loan (CMA) data</strong><span>Projections and the ratios a bank asks for, from your actuals.</span></li>
+      <li><small>NRIs</small><strong>NRI tax check</strong><span>Residential status, the treaty rate on interest and dividends, and TDS on the sale of property in India.</span></li>
+      <li><small>Cross-border</small><strong>India, US and UAE obligations</strong><span>Which filings follow you when you live, earn or own a company in more than one country.</span></li>
+      <li><small>Groups</small><strong>Related-party flags</strong><span>List related-party transactions from the ledger and the approvals and reports each one needs.</span></li>
+      <li><small>Firms</small><strong>26AS follow-up letters</strong><span>From the AIS and 26AS check, a letter to each deductor whose TDS is missing.</span></li>
+    </ul>
   </div>
 </section>
 
@@ -59,7 +110,7 @@ import { RULES } from "../../lib/tax/india";
       <div class="ledger-row"><span class="no">01</span><h3>Built for uneven income</h3><p>Capital gains and dividends are due only from the instalment after they arise. The tools ask when each one happens and apply that rule, which a single yearly estimate cannot do.</p></div>
       <div class="ledger-row"><span class="no">02</span><h3>Shows the cost of being late</h3><p>Interest for a short or late instalment, and for paying less than 90% in advance, is worked out with the same rounding the law uses.</p></div>
       <div class="ledger-row"><span class="no">03</span><h3>Private by design</h3><p>The tools run inside your browser. Your income, your statements and your records are never sent to this site or to anyone else. See the <a href="/privacy">privacy page</a>.</p></div>
-      <div class="ledger-row"><span class="no">04</span><h3>Honest about its limits</h3><p>This is software for individuals, resident or non-resident, and it gives an estimate. It does not replace an adviser for losses carried forward, foreign tax credit or a company's advance tax, and it is not a chartered accountant's service.</p></div>
+      <div class="ledger-row"><span class="no">04</span><h3>Honest about its limits</h3><p>These tools give estimates and checks on the data you enter. The advance tax tools are for individuals, resident or non-resident; none of them replaces an adviser for losses carried forward, foreign tax credit or a company's advance tax, and none is a chartered accountant's service.</p></div>
     </div>
     <div class="actions">
       <a class="btn solid" href="/tools/advance-tax">Work out my instalments</a>
