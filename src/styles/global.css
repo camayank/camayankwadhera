@@ -1040,3 +1040,6 @@
   .t-form .t-timed-row { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.2fr) minmax(0, 1fr) auto; }
   @media (max-width: 720px) { .t-form .t-timed-row { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
 }
+@layer components {
+  @media (max-width: 480px) { .t-result:not(.wide) .t-table td { white-space: normal; } }
+}
