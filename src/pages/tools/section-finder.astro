@@ -1,0 +1,19 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { SectionFinder } from "../../components/tools/SectionFinder";
+---
+<Layout title="Old Act to new Act: find any Income-tax Act, 1961 section in the 2025 Act — CA Mayank Wadhera" description="Look up any section of the Income-tax Act, 1961 and find its place in the Income-tax Act, 2025, or the other way round. All 536 sections, from the ICAI mapping." current="tools">
+<section class="hero page-hero t-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="/tools">Tools</a> · Section finder</p>
+    <h1>80C is now 123. <em>Find the rest.</em></h1>
+    <p class="lede">Type a section of the 1961 Act to find where it sits in the 2025 Act, a 2025 section to find what it replaced, or words from a heading. Every one of the 536 sections is here.</p>
+  </div>
+</section>
+<section class="section t-section">
+  <div class="wrap">
+    <SectionFinder client:load />
+    <noscript><p>This tool needs JavaScript, because it does its work in your browser and sends nothing to a server.</p></noscript>
+  </div>
+</section>
+</Layout>

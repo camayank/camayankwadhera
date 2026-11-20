@@ -27,7 +27,7 @@ npm run build
 | Path | What it holds |
 |---|---|
 | `src/pages/` | One file per page (`index`, `about`, `ventures`, `work`, `insights`, `work-with-me`, `ca4cpa`, `sop`, `profile`, `enquire`, `privacy`, `404`) |
-| `src/pages/tools/` | The advance tax tools: hub, calculator, what-if planner, tax statement check, reminders |
+| `src/pages/tools/` | The tools: hub, advance tax calculator, what-if planner, tax statement check, reminders, GST credit match, MSME payments, compliance calendar |
 | `src/components/tools/` | The interactive part of each tool (React) |
 | `src/lib/tax/` | The tax rules and arithmetic, with no browser code, so they can be tested |
 | `tests/` | Hand-worked cases for the tax arithmetic |
@@ -37,7 +37,7 @@ npm run build
 | `src/scripts/` | Motion, the 3D hero, the month-end walkthrough, the procedures stack, the enquiry form |
 | `src/styles/global.css` | Design tokens and component styles |
 
-## Advance tax tools
+## Tools
 
 The tools at `/tools` run entirely in the visitor's browser. Nothing is sent to a server; the calculator's figures are kept in the browser's own storage so the other tools can use them.
 
@@ -48,6 +48,19 @@ npm test
 ```
 
 The tests need Node 22.18 or later, which runs TypeScript files directly.
+
+The business tools keep their rules in their own files, each with the sources it was checked against at the top:
+
+| File | Tool | What to update when the law changes |
+|---|---|---|
+| `src/lib/tax/gst.ts` | GST credit match (`/tools/gst-itc`) | Column guesses if the GSTR-2B download changes |
+| `src/lib/tax/msme.ts` | MSME payments (`/tools/msme-payments`) | `MSME_RULES`: the 15 and 45 day limits and the section numbers |
+| `src/lib/tax/compliance.ts` | Compliance calendar (`/tools/compliance-calendar`) | The due dates in `complianceDates` |
+| `src/lib/tax/tds.ts` | TDS checker (`/tools/tds-check`) | `TDS_RULES`: rates and thresholds from the Finance Act |
+| `src/lib/tax/gstr9.ts` | GSTR-9 reconciliation (`/tools/gstr9`) | The 30 November cut-off and the 18% interest rate |
+| `src/lib/tax/section-map.data.ts` | Section finder (`/tools/section-finder`) | Generated from the ICAI mapping; regenerate rather than edit |
+
+Their cases are in `tests/business.test.ts` and `tests/stage2.test.ts`.
 
 ## Deploying
 

@@ -1,7 +1,8 @@
 // Calendar entries for the advance tax dates: a downloadable .ics file and Google Calendar links.
 import { RULES } from "./india.ts";
 
-export type Reminder = { date: string; title: string; detail: string };
+/** `uid` keeps two entries on the same date apart in a calendar; without it the date is used. */
+export type Reminder = { date: string; title: string; detail: string; uid?: string };
 
 /** The dates for the tax year, each with the cumulative share due. */
 export function reminders(amounts?: number[]): Reminder[] {
@@ -36,13 +37,13 @@ const fold = (line: string) => {
 };
 
 /** An .ics file with all-day events and alerts some days ahead of each date. */
-export function toIcs(items: Reminder[], alertDays: number[] = [7, 1], stamp = new Date()): string {
+export function toIcs(items: Reminder[], alertDays: number[] = [7, 1], stamp = new Date(), name = "Advance tax dates"): string {
   const dtstamp = stamp.toISOString().replace(/[-:]/g, "").replace(/\.\d+/, "");
-  const lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//camayankwadhera.com//Advance tax dates//EN", "CALSCALE:GREGORIAN", "METHOD:PUBLISH"];
+  const lines = ["BEGIN:VCALENDAR", "VERSION:2.0", `PRODID:-//camayankwadhera.com//${name}//EN`, "CALSCALE:GREGORIAN", "METHOD:PUBLISH"];
   for (const item of items) {
     lines.push(
       "BEGIN:VEVENT",
-      `UID:advance-tax-${item.date}@camayankwadhera.com`,
+      `UID:${item.uid ?? `advance-tax-${item.date}`}@camayankwadhera.com`,
       `DTSTAMP:${dtstamp}`,
       `DTSTART;VALUE=DATE:${compact(item.date)}`,
       `DTEND;VALUE=DATE:${compact(nextDay(item.date))}`,
