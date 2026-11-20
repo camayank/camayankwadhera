@@ -1,0 +1,19 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { Gstr9Recon } from "../../components/tools/Gstr9Recon";
+---
+<Layout title="GSTR-9 reconciliation: books, GSTR-1, GSTR-3B and GSTR-2B month by month — CA Mayank Wadhera" description="Reconcile the year's books with GSTR-1, GSTR-3B and GSTR-2B before GSTR-9 and 9C. See credit to claim before 30 November, credit to reverse, tax short paid and the interest on it." current="tools">
+<section class="hero page-hero t-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="/tools">Tools</a> · GSTR-9 reconciliation</p>
+    <h1>The annual return, <em>reconciled before it is filed.</em></h1>
+    <p class="lede">Enter the year month by month: sales and tax from your books, GSTR-1 and GSTR-3B, and credit from your books, GSTR-2B and GSTR-3B. See what to claim before 30 November, what to reverse, and what to pay.</p>
+  </div>
+</section>
+<section class="section t-section">
+  <div class="wrap">
+    <Gstr9Recon client:load />
+    <noscript><p>This tool needs JavaScript, because it does its work in your browser and sends nothing to a server.</p></noscript>
+  </div>
+</section>
+</Layout>

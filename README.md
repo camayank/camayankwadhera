@@ -56,8 +56,11 @@ The business tools keep their rules in their own files, each with the sources it
 | `src/lib/tax/gst.ts` | GST credit match (`/tools/gst-itc`) | Column guesses if the GSTR-2B download changes |
 | `src/lib/tax/msme.ts` | MSME payments (`/tools/msme-payments`) | `MSME_RULES`: the 15 and 45 day limits and the section numbers |
 | `src/lib/tax/compliance.ts` | Compliance calendar (`/tools/compliance-calendar`) | The due dates in `complianceDates` |
+| `src/lib/tax/tds.ts` | TDS checker (`/tools/tds-check`) | `TDS_RULES`: rates and thresholds from the Finance Act |
+| `src/lib/tax/gstr9.ts` | GSTR-9 reconciliation (`/tools/gstr9`) | The 30 November cut-off and the 18% interest rate |
+| `src/lib/tax/section-map.data.ts` | Section finder (`/tools/section-finder`) | Generated from the ICAI mapping; regenerate rather than edit |
 
-Their cases are in `tests/business.test.ts`.
+Their cases are in `tests/business.test.ts` and `tests/stage2.test.ts`.
 
 ## Deploying
 

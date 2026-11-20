@@ -1,0 +1,19 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { TdsCheck } from "../../components/tools/TdsCheck";
+---
+<Layout title="TDS checker: find payments that needed TDS under section 393 — CA Mayank Wadhera" description="Paste an expense ledger and find the payments that needed TDS under the Income-tax Act, 2025: contractors, professional fees, rent, commission, interest. See the shortfall, the interest at 1% a month and the expense at risk of disallowance." current="tools">
+<section class="hero page-hero t-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="/tools">Tools</a> · TDS checker</p>
+    <h1>The TDS you missed, <em>before the notice does.</em></h1>
+    <p class="lede">Paste the year's expense payments. Each ledger head is matched to its kind of payment, thresholds are counted for each payee, and every payment that needed TDS is listed with the shortfall and the interest running on it.</p>
+  </div>
+</section>
+<section class="section t-section">
+  <div class="wrap">
+    <TdsCheck client:load />
+    <noscript><p>This tool needs JavaScript, because it does its work in your browser and sends nothing to a server.</p></noscript>
+  </div>
+</section>
+</Layout>
